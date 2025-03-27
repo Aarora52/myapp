@@ -21,36 +21,27 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String? text;
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [FlutterLogo(size: 45)],
-        ),
+      appBar: AppBar(leading: Text('$text')),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TextField(
+            decoration: InputDecoration(hintText: 'Enter Your text'),
+            onChanged: (newText) {
+              setState(() => text = newText);
+            },
+          ),
+ElevatedButton(onPressed: null, child: Text('Submit')),
+        ],
       ),
-      drawer: Drawer(),
-      body: ListView(
-        children: <Widget> [ Container(
-           color: Colors.red,
-           height: 100,
-           width: 100),
-           Container(color: Colors.blue,
-           height: 100,
-           width: 100),
-           Container(color: Colors.green,
-           height: 100,
-           width: 100),
-           Container(color: Colors.yellow,
-           height: 100,
-           width: 100),
-        
-    
-           ],
-      ),
-      bottomNavigationBar: BottomAppBar(),
     );
   }
 }
